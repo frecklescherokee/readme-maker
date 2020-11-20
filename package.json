@@ -1,0 +1,23 @@
+{
+  "name": "readme-generator",
+  "version": "1.0.0",
+  "description": "app that generates a high quality readme document for a repo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frecklescherokee/readme-generator.git"
+  },
+  "keywords": [
+    "readme",
+    "generator"
+  ],
+  "author": "Mike Lewis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frecklescherokee/readme-generator/issues"
+  },
+  "homepage": "https://github.com/frecklescherokee/readme-generator#readme"
+}
