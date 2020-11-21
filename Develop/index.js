@@ -75,17 +75,51 @@ const promptUser = () => {
             }
         }
       },
+
+      {
+        type: 'confirm',
+        name: 'confirmTests',
+        message: 'Would you like to enter some information about tests for this application?',
+        default: false,
+        if (confirmTests) {
+          promptTests();
+        }
+      },
+
+      {
+        type: 'confirm',
+        name: 'confirmContribution',
+        message: 'Would you like to enter some information about how to contribute to this application?',
+        default: true
+      },
+      {
+        type: 'input',
+        name: 'contribution',
+        message: 'Provide some information about how to contribute to this application:',
+        when: ({ confirmContribution }) => {
+          if (confirmContribution) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      },
+      {
+        type: 'confirm',
+        name: 'confirmLink',
+        message: 'Would you like to enter the URL of the deployed application?',
+        default: true
+      },
       {
         type: 'input',
         name: 'link',
         message: 'Enter the url to the deployed application.',
-        validate: nameInput => {
-            if (nameInput) {
-              return true;
-            } else {
-              console.log('Please enter the url to the deployed application.');
-              return false;
-            }
+        when: ({ confirmLink }) => {
+          if (confirmLink) {
+            return true;
+          } else {
+            return false;
+          }
         }
       },
       {
@@ -101,26 +135,49 @@ const promptUser = () => {
             }
         }
       },
-    //   {
-    //     type: 'confirm',
-    //     name: 'confirmAbout',
-    //     message: 'Would you like to enter some information about yourself for an "About" section?',
-    //     default: true
-    //   },
-    //   {
-    //     type: 'input',
-    //     name: 'about',
-    //     message: 'Provide some information about yourself:',
-    //     when: ({ confirmAbout }) => {
-    //       if (confirmAbout) {
-    //         return true;
-    //       } else {
-    //         return false;
-    //       }
-    //     }
-    //   }
+      {
+        type: 'confirm',
+        name: 'confirmMit',
+        message: 'Would you like to use the MIT license?',
+        default: true
+      },
+      {
+        type: 'confirm',
+        name: 'confirmGnu',
+        message: 'Would you like to use the GNU GPLv3 license?',
+        when: ({ confirmMit }) => {
+          if (!confirmMit) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      },
     ]);
   };
+
+  
+  // this is just boilerplate text to see if the tests function was called
+  let promptTests = () => {
+    {
+      return inquirer.prompt([
+      {
+        type: 'input',
+        name: 'test',
+        message: 'Enter how to test this application.',
+        validate: testInput => {
+          if (testInput) {
+            return true;
+          } else {
+            console.log('Please enter test info.');
+            return false;
+          }
+        }
+      }
+      ])
+    }
+  };
+
 
   const writeFile = fileContent => {
     return new Promise((resolve, reject) => {
