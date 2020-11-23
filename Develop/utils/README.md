@@ -1,14 +1,19 @@
-# butt lover
+# gotoschool
   
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 
 ## Description 
-loves butts
+shutup
 
 ## Questions
-For any questions, contact katei at lovebuts.com.
-Github: github.com/buttlover 43 
+For any questions, contact Mike at asdfa.
+Github: github.com/asdfa 
 
 ## Github Repo
-n
+asdfafd
+
+## License
+Licensed under the [GNU GPLv3](LICENSE.txt) license.
 
 

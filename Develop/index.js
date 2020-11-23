@@ -78,16 +78,6 @@ const promptUser = () => {
 
       {
         type: 'confirm',
-        name: 'confirmTests',
-        message: 'Would you like to enter some information about tests for this application?',
-        default: false,
-        if (confirmTests) {
-          promptTests();
-        }
-      },
-
-      {
-        type: 'confirm',
         name: 'confirmContribution',
         message: 'Would you like to enter some information about how to contribute to this application?',
         default: true
@@ -153,59 +143,91 @@ const promptUser = () => {
           }
         }
       },
+
+      {
+        type: 'confirm',
+        name: 'confirmTest',
+        message: 'Would you like to enter some information about tests for this application?',
+        default: false,
+      }
     ]);
   };
 
   
-  // this is just boilerplate text to see if the tests function was called
-  let promptTests = () => {
+// this is just boilerplate text to see if the tests function was called
+let promptTest = readmeData => {
+    // If there's no 'tests' array property, create one
+    if (!readmeData.tests) {
+      readmeData.tests = [];
+    } 
+    
+    return inquirer.prompt([
+    
     {
-      return inquirer.prompt([
-      {
-        type: 'input',
-        name: 'test',
-        message: 'Enter how to test this application.',
-        validate: testInput => {
-          if (testInput) {
-            return true;
-          } else {
-            console.log('Please enter test info.');
-            return false;
-          }
+      type: 'input',
+      name: 'test',
+      message: 'Enter how to test this application.',
+      validate: testInput => {
+        if (testInput) {
+          return true;
+        } else {
+          console.log('Please enter a testing method.');
+          return false;
         }
-      }
-      ])
     }
-  };
-
-
-  const writeFile = fileContent => {
-    return new Promise((resolve, reject) => {
-      fs.writeFile('./utils/README.md', fileContent, err => {
-        // if there's an error, reject the Promise and send the error to the Promise's `.catch()` method
-        if (err) {
-          reject(err);
-          // return out of the function here to make sure the Promise doesn't accidentally execute the resolve() function as well
-          return;
-        }
+    },
+    {
+      type: 'confirm',
+      name: 'confirmAddTest',
+      message: 'Would you like to enter another test?',
+      default: false
+    }
+  ])
+  .then(testData => {
+    readmeData.tests.push(testData);
+    if (testData.confirmAddTest) {
+      return promptTest(readmeData);
+    } else {
+      return readmeData;
+    }
+  });
   
-        // if everything went well, resolve the Promise and send the successful data to the `.then()` method
-        resolve({
-          ok: true,
-          message: 'File created!'
-        });
+};
+
+
+// function to write the readme file to its location
+const writeFile = fileContent => {
+  return new Promise((resolve, reject) => {
+    fs.writeFile('./utils/README.md', fileContent, err => {
+      // if there's an error, reject the Promise and send the error to the Promise's `.catch()` method
+      if (err) {
+        reject(err);
+        // return out of the function here to make sure the Promise doesn't accidentally execute the resolve() function as well
+        return;
+      }
+
+      // if everything went well, resolve the Promise and send the successful data to the `.then()` method
+      resolve({
+        ok: true,
+        message: 'File created!'
       });
     });
-  };
+  });
+};
 
-// function to write README file
-function writeToFile(fileName, data) {
-}
+
 
 // function to initialize program
 function init() {
 // get user data
 promptUser()
+// then get test data
+.then(data => {
+  if (data.confirmTest) {
+    return promptTest(data);
+  }
+  return data;
+})
 // then generate the content of the README file
 .then(data => {
     return generateMarkdown(data);
