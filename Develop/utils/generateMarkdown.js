@@ -5,6 +5,9 @@ function generateMarkdown(data) {
 
 ## Description 
 ${data.description}
+${generateUsage(data.confirmUsageVideo, data.usageVideoName, data.usageVideoLink, data.confirmUsageInstructions, data.usageInstructions)} 
+${generateCredits(data.confirmCollaborators, data.collaborators, data.confirmApps, data.apps, data.confirmTutorials, data.tutorials)}
+${generateTests(data.tests, data.confirmTest)}
 ${generateContribution(data.contribution)}
 ## Questions
 For any questions, contact ${data.name} at ${data.email}.
@@ -15,6 +18,117 @@ ${data.grepo}
 ${generateLicense(data.confirmMit, data.confirmGnu)}
 
 `;
+}
+
+let generateUsage = (confirmUsageVideo, usageVideoName, usageVideoLink, confirmUsageInstructions, usageInstructions) => {
+  if(!confirmUsageVideo && !confirmUsageInstructions) {
+    return ''
+  }
+
+  let usageText = "## Usage";
+  let videoHeader = "";
+  let videoName = "";
+  let videoLink = "";
+  if(confirmUsageVideo) {
+    videoHeader = "### Usage Video"
+    videoName = usageVideoName;
+    videoLink = usageVideoLink;
+  }
+
+  //handle usage instructions
+  let instructionsHeader = "";
+  if(confirmUsageInstructions) {
+    let usageInstructionNo = 0;
+    const usageInstructionsArray = usageInstructions.map(usageInstructionData => {
+    usageInstructionNo +=1;
+    return "" + usageInstructionNo + ". " + usageInstructionData.usageInstruction + "";
+  });
+  }
+  
+  
+
+  return `
+  ## Usage
+  ${videoHeader}
+  ${videoName}
+  ${videoLink}
+  ${usageInstructionsHeader}
+  ${usageInstructionsArray.join(`
+  `)}
+  `
+
+};
+
+
+
+
+let generateCredits = (confirmCollaborators, collaborators, confirmApps, apps, confirmTutorials, tutorials) => {
+  //handle collaborators
+  if(!confirmCollaborators) {
+    return '';
+  }
+  
+  let collaboratorNo = 0;
+  const collaboratorsArray = collaborators.map(collaboratorData => {
+    collaboratorNo +=1;
+    return "" + collaboratorNo + ". " + collaboratorData.collaboratorName + ", " + collaboratorData.collaboratorRepo + "";
+  });
+
+  //handle 3rd party applications
+  if(!confirmApps) {
+    return '';
+  }
+  let appNo = 0;
+
+  const appsArray = apps.map(appData => {
+    appNo +=1;
+    return "" + appNo + ". " + appData.appName + ", creator: " + appData.creatorName + ", found at: " + appData.creatorLink + "";
+  });
+
+  //handle tutorial videos
+  if(!confirmTutorials) {
+    return '';
+  }
+  let tutorialNo = 0;
+
+  const tutorialsArray = tutorials.map(tutorialData => {
+    tutorialNo +=1;
+    return "" + tutorialNo + ". " + tutorialData.tutorialName + ", " + tutorialData.tutorialLink + "";
+  });
+  
+  return `
+## Credits
+### Collaborators
+${collaboratorsArray.join(`
+`)}
+## Third Party Applications
+${appsArray.join(`
+`)}
+## Tutorials
+${tutorialsArray.join(`
+`)}
+`
+}
+
+
+
+
+let generateTests = (tests, confirmTest) => {
+  console.log("confirmTest = " + confirmTest);
+  if(!confirmTest) {
+    return '';
+  }
+  let testNo = 0;
+
+  const testsArray = tests.map(testData => {
+    testNo +=1;
+    return "" + testNo + ". " + testData.test + "";
+  });
+  
+  return `
+## Tests
+${testsArray.join(`
+`)}`
 }
 
 let generateContribution = contribution => {

@@ -1,19 +1,31 @@
-# gotoschool
+# asdf
   
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
 ## Description 
-shutup
+asdf
+
+
+
+## Tests
+1. test 1
+2. test 2
+
+## Contributing
+ffdsfasdf
 
 ## Questions
-For any questions, contact Mike at asdfa.
-Github: github.com/asdfa 
+For any questions, contact mike at asdf.
+Github: github.com/asdf 
+
+## Application Link
+fffffffff
 
 ## Github Repo
-asdfafd
+eeeeeeeeee
 
 ## License
-Licensed under the [GNU GPLv3](LICENSE.txt) license.
+Licensed under the [MIT](LICENSE.txt) license.
 
 
