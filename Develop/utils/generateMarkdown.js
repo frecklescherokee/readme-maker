@@ -20,12 +20,14 @@ ${generateLicense(data.confirmMit, data.confirmGnu)}
 `;
 }
 
+
+
 let generateUsage = (confirmUsageVideo, usageVideoName, usageVideoLink, confirmUsageInstructions, usageInstructions) => {
   if(!confirmUsageVideo && !confirmUsageInstructions) {
     return ''
   }
 
-  let usageText = "## Usage";
+  
   let videoHeader = "";
   let videoName = "";
   let videoLink = "";
@@ -36,10 +38,14 @@ let generateUsage = (confirmUsageVideo, usageVideoName, usageVideoLink, confirmU
   }
 
   //handle usage instructions
-  let instructionsHeader = "";
+  let usageInstructionsHeader = "";
   if(confirmUsageInstructions) {
+    usageInstructionsHeader = `
+
+### Usage Instructions
+`
     let usageInstructionNo = 0;
-    const usageInstructionsArray = usageInstructions.map(usageInstructionData => {
+    var usageInstructionsArray = usageInstructions.map(usageInstructionData => {
     usageInstructionNo +=1;
     return "" + usageInstructionNo + ". " + usageInstructionData.usageInstruction + "";
   });
@@ -48,14 +54,15 @@ let generateUsage = (confirmUsageVideo, usageVideoName, usageVideoLink, confirmU
   
 
   return `
-  ## Usage
-  ${videoHeader}
-  ${videoName}
-  ${videoLink}
-  ${usageInstructionsHeader}
-  ${usageInstructionsArray.join(`
-  `)}
-  `
+## Usage
+${videoHeader}
+${videoName}
+${videoLink}
+
+${usageInstructionsHeader}
+${usageInstructionsArray.join(`
+`)}
+`
 
 };
 
@@ -73,6 +80,7 @@ let generateCredits = (confirmCollaborators, collaborators, confirmApps, apps, c
     collaboratorNo +=1;
     return "" + collaboratorNo + ". " + collaboratorData.collaboratorName + ", " + collaboratorData.collaboratorRepo + "";
   });
+  console.log(collaboratorsArray);
 
   //handle 3rd party applications
   if(!confirmApps) {
@@ -84,6 +92,7 @@ let generateCredits = (confirmCollaborators, collaborators, confirmApps, apps, c
     appNo +=1;
     return "" + appNo + ". " + appData.appName + ", creator: " + appData.creatorName + ", found at: " + appData.creatorLink + "";
   });
+  console.log(appsArray);
 
   //handle tutorial videos
   if(!confirmTutorials) {
@@ -95,16 +104,17 @@ let generateCredits = (confirmCollaborators, collaborators, confirmApps, apps, c
     tutorialNo +=1;
     return "" + tutorialNo + ". " + tutorialData.tutorialName + ", " + tutorialData.tutorialLink + "";
   });
+  console.log(tutorialsArray);
   
   return `
 ## Credits
 ### Collaborators
 ${collaboratorsArray.join(`
 `)}
-## Third Party Applications
+### Third Party Applications
 ${appsArray.join(`
 `)}
-## Tutorials
+### Tutorials
 ${tutorialsArray.join(`
 `)}
 `

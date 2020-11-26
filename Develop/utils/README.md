@@ -1,29 +1,36 @@
-# asdf
+# buttfuck
   
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
 ## Description 
-asdf
+fuck you
 
+## Usage
+### Usage Video
+usage video
+usagevideo.com
+
+1. eat shit
+2. bugger off
+ 
 
 
 ## Tests
 1. test 1
-2. test 2
 
 ## Contributing
-ffdsfasdf
+moose
 
 ## Questions
-For any questions, contact mike at asdf.
-Github: github.com/asdf 
+For any questions, contact mike at crab.
+Github: github.com/clown 
 
 ## Application Link
-fffffffff
+sahorse
 
 ## Github Repo
-eeeeeeeeee
+buffalo
 
 ## License
 Licensed under the [MIT](LICENSE.txt) license.
