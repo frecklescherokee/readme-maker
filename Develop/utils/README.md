@@ -1,10 +1,10 @@
-# Fetch
+# fetch
   
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
 ## Description 
-play fetch with my dad
+dad throws the ball and I go get it
 ## Table of Contents
 
 1. [Features](#features)
@@ -13,68 +13,62 @@ play fetch with my dad
 4. [Credits](#credits)
 5. [Tests](#tests)
 6. [Contributing](#contributing)
-7. [Application link](#application)
-8. [Github Repo](#github-repo)
-9. [License](#license)
+7. [Github Repo](#github-repo)
+8. [License](#license)
+
+## Features
+1. good exercise
+2. dad gives me treats
+
+## Installation
+### Usage Video
+how to install fetch into your dog
+https://youtu.be/ZtpLvumSTzI
+
+### Installation Instructions
+1. npm init
+2. carefully consider if you want to give the ball back![image](https://user-images.githubusercontent.com/71302040/100485880-5ce3f300-30c7-11eb-9841-473834c00335.png)
+ 
 
 ## Usage
 ### Usage Video
 how to play fetch
-https://youtu.be/Tb76ZLxeCGo
+https://youtu.be/ZtpLvumSTzI
 
 ### Usage Instructions
-1. get a ball and throw it.![homepage](https://user-images.githubusercontent.com/69940829/98902938-3a719900-247c-11eb-9c56-1445596cc9d0.png)
-2. steal the ball from Jack if he tries to grab it.
- 
-
-## Features
-1. balls are normally round
-2. dolls aren't round, but can also be used.
-
-## Installation
-### Usage Video
-how to install
-https://youtu.be/Tb76ZLxeCGo
-
-### Installation Instructions
-1. something about node
-2. learn about node.js![homepage](https://user-images.githubusercontent.com/69940829/98902938-3a719900-247c-11eb-9c56-1445596cc9d0.png)
+1. type node init
+2. answer questions![image](https://user-images.githubusercontent.com/71302040/100485822-2c9c5480-30c7-11eb-943e-31603fcdb443.png)
  
 
 ## Credits
 
 ### Collaborators
-1. jack - [jack](https://github.com/stinky)<br>
-2. dad - [dad](https://github.com/frecklescherokee)<br>
-3. mom - [mom](https://github.com/fancylady)<br>
+1. jack - [jack](https://github.com/stinkyjack)<br>
 
 
 ### 3rd Party Apps
-1. instaball, creator: auntie sarah, found at: instagram.com
+1. tinderfordogs, creator: my dad, found at: tinderfordogs.com
 
 
 ### Tutorials
-1. what to do about little brothers who are stinky and in the way, https://youtu.be/Tb76ZLxeCGo
+1. fetch for dummies, https://youtu.be/ZtpLvumSTzI
 
 
 ## Tests
-1. get a ball and throw it
-2. if jack brings it back, its wrong
+1. taste ball for stinkyness
+2. drop ball at dad's feet and see if he notices.  Bark if not.
 
 ## Contributing
 ask my dad
 
 
 ## Questions
-For any questions, contact Bobby at bobbydazzler@gmail.com.
+For any questions, contact bobby at bobbydazzler@gmail.com.
 
 Github: - [bobbydazzler](https://github.com/bobbydazzler)<br>
 
-## Application-Link
-fetch.com
-
 ## Github-Repo
-github.com/bobbydazzler/fetch
+https://github.com/bobbydazzler/fetch
 
 ## License
 Licensed under the [MIT](LICENSE.txt) license.

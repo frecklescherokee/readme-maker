@@ -77,7 +77,6 @@ ${contentsArray.join(`
 
 /////////// GENERATE FEATURES //////////////////
 let generateFeatures = (features, confirmFeatures) => {
-  console.log("confirmFeatures = " + confirmFeatures);
   if(!confirmFeatures) {
     return '';
   }
@@ -118,7 +117,6 @@ let generateInstallation = (confirmInstallationVideo, installationVideoName, ins
     let installationInstructionNo = 0;
     var installationInstructionsArray = installationInstructions.map(installationInstructionData => {
     installationInstructionNo +=1;
-    console.log("on instruction no. " + installationInstructionNo + ", the confirmInstallationScreenshot property is " + installationInstructionData.confirmInstallationScreenshot + "and the screenshot link is " + installationInstructionData.installationScreenshotLink + "");
     if(installationInstructionData.confirmInstallationScreenshot) {
       return "" + installationInstructionNo + ". " + installationInstructionData.installationInstruction + "" + installationInstructionData.installationScreenshotLink + "";
     }
@@ -163,7 +161,6 @@ let generateUsage = (confirmUsageVideo, usageVideoName, usageVideoLink, confirmU
     let usageInstructionNo = 0;
     var usageInstructionsArray = usageInstructions.map(usageInstructionData => {
     usageInstructionNo +=1;
-    console.log("on instruction no. " + usageInstructionNo + ", the confirmUsageScreenshot property is " + usageInstructionData.confirmUsageScreenshot + "and the screenshot link is " + usageInstructionData.usageScreenshotLink + "");
     if(usageInstructionData.confirmUsageScreenshot) {
       return "" + usageInstructionNo + ". " + usageInstructionData.usageInstruction + "" + usageInstructionData.usageScreenshotLink + "";
     }
@@ -187,7 +184,6 @@ ${usageInstructionsArray.join(`
 ////////// GENERATE CREDITS HEADER
 let generateCredits = (confirmCollaborators, confirmApps, confirmTutorials) => {
 
-  console.log ("confirm Collaborators = " + confirmCollaborators);
   if(!confirmCollaborators && !confirmApps && !confirmTutorials) {
     return '';
   }
@@ -206,7 +202,6 @@ let generateCollaborators = (confirmCollaborators, collaborators) => {
     collaboratorNo +=1;
     return "" + collaboratorNo + ". " + collaboratorData.collaboratorName + " - [" + collaboratorData.collaboratorName + "](https://github.com/" + collaboratorData.collaboratorRepo + ")<br>";
   });
-  console.log(collaboratorsArray);
 
   return `
 ### Collaborators
@@ -227,7 +222,6 @@ let generateApps = (confirmApps, apps) => {
     appNo +=1;
     return "" + appNo + ". " + appData.appName + ", creator: " + appData.creatorName + ", found at: " + appData.creatorLink + "";
   });
-  console.log(appsArray);
   
   return `
 ### 3rd Party Apps
@@ -248,7 +242,6 @@ let generateTutorials = (confirmTutorials, tutorials) => {
     tutorialNo +=1;
     return "" + tutorialNo + ". " + tutorialData.tutorialName + ", " + tutorialData.tutorialLink + "";
   });
-  console.log(tutorialsArray);
 
   return `
 ### Tutorials
@@ -259,7 +252,6 @@ ${tutorialsArray.join(`
 
 /////////// GENERATE TESTS //////////////////
 let generateTests = (tests, confirmTest) => {
-  console.log("confirmTest = " + confirmTest);
   if(!confirmTest) {
     return '';
   }
