@@ -303,7 +303,7 @@ let getCollaborators = readmeData => {
     {
       type: 'input',
       name: 'collaboratorName',
-      message: 'Enter the name of a colabborator.',
+      message: 'Enter the name of a collaborator.',
       validate: collaboratorInput => {
         if (collaboratorInput) {
           return true;
@@ -316,12 +316,12 @@ let getCollaborators = readmeData => {
     {
       type: 'input',
       name: 'collaboratorRepo',
-      message: 'Enter the Github repo of this colabborator.',
+      message: 'Enter the Github repo of this collaborator.',
       validate: collaboratorInput => {
         if (collaboratorInput) {
           return true;
         } else {
-          console.log('Please enter the Github repo of this colabborator.');
+          console.log('Please enter the Github repo of this collaborator.');
           return false;
         }
       } 
